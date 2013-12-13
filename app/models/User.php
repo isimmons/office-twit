@@ -49,4 +49,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	/**
+	 * Force hashing of passwords.
+	 *
+	 * @param string $password
+	 * @return void
+	 */
+	public function setPasswordAttribute($value)
+	{
+		$this->attributes['password'] = Hash::make($value);
+	}
+
 }
