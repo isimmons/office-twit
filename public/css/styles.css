@@ -1,10 +1,16 @@
-header {
-    background: #222;
+body {
+    background: url('../img/Pepsized_Blur_02.jpg') no-repeat;
 }
 
-.navbar-container {
+header {
+    background: #222;
+    margin-bottom: 20px;
+}
+
+.container {
     max-width: 1000px;
     margin: 0 auto;
+
 }
 
 .navbar-inverse {
@@ -16,7 +22,21 @@ header {
     background: #000;
 }
 
-/*.navbar-nav a:hover {
-    background-color: #000 !important;
-    color: blue;
-}*/
+a.forgot-password {
+    float: left;
+    padding: 20px 10px;
+}
+
+.login-form-container {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 10px 10px 20px;
+    margin-top: 20%;
+    border: 1px solid #888;
+    background: #f9f9f9;
+}
+
+.login-form-container .col-md-8 {
+    border-right: 1px solid #333;
+}
+

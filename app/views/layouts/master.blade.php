@@ -27,7 +27,7 @@
 <body>
  
     <header>
-        <div class="navbar-container">
+        <div class="container">
             @yield('navbar.prepend')
                 @include('partials._navbar')
             @yield('navbar.append')
@@ -36,22 +36,21 @@
     
  
  
-    <div id="main">
-        <div class="container">
-            @yield('main.prepend')
-            
-            <div id="content">
-                @yield('content')
-            </div><!-- ./ #content -->
- 
-            <div id="sidebar">
-                @yield('sidebar')
-            </div><!-- ./ #sidebar -->
- 
-            @yield('main.append')
- 
-        </div><!--./ .container-->
-    </div><!-- ./ #main -->
+    
+    <div class="container">
+        @yield('main.prepend')
+        
+        <div id="content">
+            @yield('content')
+        </div><!-- ./ #content -->
+
+        <div id="sidebar">
+            @yield('sidebar')
+        </div><!-- ./ #sidebar -->
+
+        @yield('main.append')
+    </div><!--./ .container-->
+    
  
     @yield('footer.prepend')
     @include('partials._footer')
