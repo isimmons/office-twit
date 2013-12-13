@@ -33,9 +33,23 @@ class SessionsControllerTest extends TestCase {
     **/
     public function testStoreMethodCreatesSession()
     {
+        Auth::logout();
+
         $response = $this->action('POST', 'SessionsController@store', ['username' => 'john', 'password' => '1234']);
     
-        
+        $this->assertTrue(Auth::check());
     }
+
+    public function testDestroyMethodDestroysTheSessionAndRedirectsToLogin()
+    {
+        $user = User::find(1);
+        Auth::login($user);
+
+        $response = $this->action('GET', 'SessionsController@destroy');
+
+        $this->assertFalse(Auth::check());
+
+        $this->assertRedirectedTo('login');
+    }   
 
 }

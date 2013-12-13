@@ -22,6 +22,10 @@ class SessionsController extends BaseController {
 	{
 		$input = Input::only(['username', 'password']);
 		
+		$user = User::find(1);
+
+		Auth::login($user);
+
 		return Redirect::to('twits')->with('flash_message', 'You are logged in.');
 	}
 
@@ -33,7 +37,7 @@ class SessionsController extends BaseController {
 	 */
 	public function destroy()
 	{
-		//log the user out and redirect to login
+		Auth::logout();
 		return Redirect::to('login');
 	}
 
