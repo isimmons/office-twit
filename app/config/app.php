@@ -109,7 +109,8 @@ return array(
 
 		//3rd party
 		'Way\Generators\GeneratorsServiceProvider',
-
+		'Way\Form\FormServiceProvider',
+		
 		//OfficeTwit
 		'OfficeTwit\OfficeTwitServiceProvider',
 	),
