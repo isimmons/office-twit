@@ -9,7 +9,9 @@ class TwitsController extends BaseController {
 	 */
 	public function index()
 	{
-       		return View::make('twits.index');
+		$twits = Twit::all();
+
+       		return View::make('twits.index', compact('twits'));
 	}
 
 	/**

@@ -14,4 +14,13 @@ class TwitsControllerTest extends TestCase {
         $this->assertTrue($this->client->getResponse()->isOk());
     }
 
+    public function testIndexReturnsCorrectViewWithTwits()
+    {
+        $response = $this->action('GET', 'TwitsController@index');
+
+        $this->assertEquals($response->getContent(), View::make('twits.index'));
+
+        $this->assertViewHas('twits');
+    }
+
 }
