@@ -1,4 +1,4 @@
-{{ Form::open() }}
+{{ Form::open(['url' => 'login']) }}
 {{ FormField::username() }}
 {{ FormField::password() }}
 <a href="#" class="forgot-password">Forgot Password</a>
