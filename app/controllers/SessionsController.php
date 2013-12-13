@@ -21,7 +21,8 @@ class SessionsController extends BaseController {
 	public function store()
 	{
 		$input = Input::only(['username', 'password']);
-		dd($input);
+		
+		return Redirect::to('twits')->with('flash_message', 'You are logged in.');
 	}
 
 	/**
