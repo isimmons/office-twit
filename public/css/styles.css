@@ -1,0 +1,21 @@
+header {
+    background: #222;
+}
+
+.navbar-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.navbar-inverse {
+    border:none;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    background: #000;
+}
+
+/*.navbar-nav a:hover {
+    background-color: #000 !important;
+    color: blue;
+}*/

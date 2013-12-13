@@ -12,7 +12,7 @@
         {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css') }}
         {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css') }}
         @yield('styles')
-        {{ HTML::style('public/css/app.css') }}
+        {{ HTML::style('css/styles.css') }}
  
  
         {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js') }}
@@ -26,10 +26,14 @@
     </head>
 <body>
  
- 
-    @yield('navbar.prepend')
-        @include('partials._navbar')
-    @yield('navbar.append')
+    <header>
+        <div class="navbar-container">
+            @yield('navbar.prepend')
+                @include('partials._navbar')
+            @yield('navbar.append')
+        </div>
+    </header>
+    
  
  
     <div id="main">
@@ -58,7 +62,7 @@
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js') }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js') }}
     @yield('scripts')
-    {{ HTML::script('public/js/app.js') }}
+    {{ HTML::script('js/app.js') }}
  
     <!-- un-comment for analytics
     <script>
