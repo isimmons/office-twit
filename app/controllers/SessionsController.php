@@ -20,7 +20,8 @@ class SessionsController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::only(['username', 'password']);
+		dd($input);
 	}
 
 	/**
@@ -31,7 +32,8 @@ class SessionsController extends BaseController {
 	 */
 	public function destroy()
 	{
-		//
+		//log the user out and redirect to login
+		return Redirect::to('login');
 	}
 
 }
