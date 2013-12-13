@@ -14,4 +14,13 @@ class UsersControllerTest extends TestCase {
         $this->assertTrue($this->client->getResponse()->isOk());
     }
 
+    public function testIndexReturnsCorrectViewWithUsers()
+    {
+        $response = $this->action('GET', 'UsersController@index');
+
+        $this->assertEquals($response->getContent(), View::make('users.index'));
+
+        $this->assertViewHas('users');
+    }
+
 }
