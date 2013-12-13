@@ -9,7 +9,7 @@ class TwitsController extends BaseController {
 	 */
 	public function index()
 	{
-        return View::make('twits.index');
+       		return View::make('twits.index');
 	}
 
 	/**
@@ -19,7 +19,7 @@ class TwitsController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('twits.create');
+        		return View::make('twits.create');
 	}
 
 	/**
@@ -40,7 +40,7 @@ class TwitsController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('twits.show');
+        		return View::make('twits.show');
 	}
 
 	/**
@@ -51,7 +51,7 @@ class TwitsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('twits.edit');
+        		return View::make('twits.edit');
 	}
 
 	/**
