@@ -110,6 +110,7 @@ return array(
 		//3rd party
 		'Way\Generators\GeneratorsServiceProvider',
 		'Way\Form\FormServiceProvider',
+		'Intouch\LaravelNewrelic\LaravelNewrelicServiceProvider',
 		
 		//OfficeTwit
 		'OfficeTwit\OfficeTwitServiceProvider',
@@ -178,6 +179,9 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+
+		//3rd party
+		'Newrelic'        => 'Intouch\LaravelNewrelic\Facades\Newrelic',
 
 	),
 
