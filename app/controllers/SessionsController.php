@@ -22,11 +22,17 @@ class SessionsController extends BaseController {
 	{
 		$input = Input::only(['username', 'password']);
 		
-		$user = User::find(1);
+		
+		if(Auth::attempt($input))
+		{
+			return Redirect::to('twits')->with('flash_message', 'You are logged in.');	
+		}
 
-		Auth::login($user);
+		return Redirect::back()
+			->with('flash_error', 'Sorry the username/password combination is incorrect.')
+			->withInput();
 
-		return Redirect::to('twits')->with('flash_message', 'You are logged in.');
+		
 	}
 
 	/**
