@@ -2,6 +2,14 @@
 ### Yes that's right. I said 4.2 
 ### UNSTABLE but amazingly works very well :-)
 
+#TODO
+* Figure out how I want to implement public viewable profiles
+* Allow search for public viewable profiles from user who is not logged in
+* Create admin section with many configs for company IT administrator to be a Twit Nazi
+* Allow user config to show own personal twitter feed side by side with company feed
+* Allow user to RT personal onto company feed but not from company onto personal
+* Allow company admin to enable afore mentioned retweeting of company twits onto users personal feed
+
 ##Notes:
 * cdn fallback for bootstrap
 -- http://timjames.me/jquery-and-jquery-ui-fallbacks  
