@@ -1,4 +1,6 @@
-## Laravel PHP Framework
+## OfficeTwit is a twitter clone built on Laravel PHP framework v 4.2
+### Yes that's right. I said 4.2 
+### UNSTABLE but amazingly works very well :-)
 
 ##Notes:
 * cdn fallback for bootstrap
@@ -8,6 +10,9 @@
 
 
 ## Official Documentation
+For OfficeTwit? There is none. But I did just upload a gh-pages with twitter bootstrap theme :-)
+http://isimmons.github.io/office-twit
+There is no content there yet.
 
 Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
 
