@@ -6,9 +6,9 @@
 
     <div class="collapse navbar-collapse" id="top-nav">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            @if( getNavLinks() )
+                {{ getNavLinks() }}
+            @endif
         </ul>
 
         <form class="navbar-form navbar-right" role="search">
