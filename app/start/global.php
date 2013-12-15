@@ -79,15 +79,3 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
-
-/*
-|--------------------------------------------------------------------------
-| Require The helpers File
-|--------------------------------------------------------------------------
-|
-| Next we will load the helpers file for the application. This gives us
-| a nice separate location to store our helper functions
-|
-*/
-
-require app_path().'/helpers.php';

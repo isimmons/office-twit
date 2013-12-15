@@ -23,7 +23,8 @@
 		],
 		"psr-0": {
 			"OfficeTwit": "app/"
-		}
+		},
+		"files": ["app/helpers.php"]
 	},
 	"scripts": {
 		"post-install-cmd": [

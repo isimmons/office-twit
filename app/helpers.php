@@ -23,3 +23,4 @@ function getNavLinks()
 
     return null;
 }
+
