@@ -18,6 +18,6 @@ return array(
      * Will cause an exception to be thrown if the NewRelic
      * PHP agent is not found / installed
      */
-    'throw_if_not_installed' => false,
+    'throw_if_not_installed' => true,
 
 );
