@@ -4,15 +4,15 @@ global:
 web1:
   name: office-twit
   shared_writable_dirs:
-    - /storage/cache
-    - /storage/database
-    - /storage/logs
-    - /storage/sessions
-    - /storage/views
-    - /storage/work
-    - /storage/meta
-    - /database/migrations
-    - /database/seeds
+    - app/storage/cache
+    - app/storage/database
+    - app/storage/logs
+    - app/storage/sessions
+    - app/storage/views
+    - app/storage/work
+    - app/storage/meta
+    - app/database/migrations
+    - app/database/seeds
   document_root: /public
   php_version: 5.4.14
   php_extensions:
