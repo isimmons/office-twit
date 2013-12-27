@@ -10,6 +10,7 @@ web1:
     - /storage/sessions
     - /storage/views
     - /storage/work
+    - /storage/meta
   document_root: /public
   php_version: 5.4.14
   php_extensions:
@@ -21,6 +22,9 @@ web1:
     - curl
   after_build:
     - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
+  before_deploy:
+    - "php artisan migrate"
+    - "php artisan db:seed"
   after_deploy:
     - "rm -f storage/cache/*"
     - "rm -f storage/views/*"
