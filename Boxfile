@@ -4,29 +4,24 @@ global:
 web1:
   name: office-twit
   shared_writable_dirs:
-    - /storage/cache
-    - /storage/database
-    - /storage/logs
-    - /storage/sessions
-    - /storage/views
-    - /storage/work
-    - /storage/meta
-    - /database/migrations
-    - /database/seeds
+    - app/storage/cache
+    - app/storage/database
+    - app/storage/logs
+    - app/storage/sessions
+    - app/storage/views
+    - app/storage/work
+    - app/storage/meta    
   document_root: /public
   php_version: 5.4.14
   php_extensions:
     - mbstring
-    - zip
-    - pdo_mysql
     - mcrypt
-    - memcached
-    - curl
+    - pdo_mysql
+    - zip    
   after_build:
     - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install --prefer-source"
   before_deploy:
-    - "php artisan migrate"
-    - "php artisan db:seed"
+    - "php artisan migrate"    
   after_deploy:
-    - "rm -f storage/cache/*"
+    - "php artisan cache:clear"
     - "rm -f storage/views/*"
