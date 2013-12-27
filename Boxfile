@@ -1,0 +1,26 @@
+global:
+  env:
+    - OFFICETWIT_ENV: production
+web1:
+  name: office-twit
+  shared_writable_dirs:
+    - /storage/cache
+    - /storage/database
+    - /storage/logs
+    - /storage/sessions
+    - /storage/views
+    - /storage/work
+  document_root: /public
+  php_version: 5.4.14
+  php_extensions:
+    - pdo_mysql
+    - mcrypt
+    - eaccelerator
+    - memcached
+    - curl
+  before_deploy:
+    - "php artisan migrate"
+    - "php artisan db:seed"
+  after_deploy:
+    - "rm -f storage/cache/*"
+    - "rm -f storage/views/*"
