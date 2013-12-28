@@ -3,13 +3,25 @@
 class SessionsControllerTest extends TestCase {
 
     /**
-     * Confirm route response.
+     * Testlogin route response.
      *
      * @return void
      */
-    public function testRouteResponse()
+    public function testLoginRouteResponseIsOk()
     {
         $crawler = $this->client->request('GET', '/login');
+
+        $this->assertTrue($this->client->getResponse()->isOk());
+    }
+
+    /**
+     * Test logout route response.
+     *
+     * @return void
+     */
+    public function testLogoutRouteResponseIsOk()
+    {
+        $crawler = $this->client->request('GET', '/logout');
 
         $this->assertTrue($this->client->getResponse()->isOk());
     }
@@ -40,6 +52,11 @@ class SessionsControllerTest extends TestCase {
         $this->assertTrue(Auth::check());
     }
 
+    /**
+    * Test the  destroy method destroys a session
+    *
+    * @return void
+    **/
     public function testDestroyMethodDestroysTheSessionAndRedirectsToLogin()
     {
         $user = User::find(1);
