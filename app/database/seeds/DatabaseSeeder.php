@@ -11,8 +11,11 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('TwitsTableSeeder');
+		DB::table('twits')->truncate();
+		DB::table('users')->truncate();
+		
 		$this->call('UsersTableSeeder');
+		$this->call('TwitsTableSeeder');
 		
 	}
 
