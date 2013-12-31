@@ -78,4 +78,15 @@ class UsersController extends BaseController {
 		//
 	}
 
+	public function profile()
+	{
+		if(Auth::check())
+		{
+			$user = Auth::user();
+			return View::make('users.profile', compact('user'));
+		}
+
+		return redirect::to('login')->with('flash_message', 'you need to be logged in to see your profile foo!');	
+	}
+
 }

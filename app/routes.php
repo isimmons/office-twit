@@ -7,5 +7,7 @@ Route::post('login', 'SessionsController@store')->before('csrf');
 
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
 
-Route::resource('twits', 'TwitsController');
-Route::resource('users', 'UsersController');
+Route::get('twits', 'TwitsController@index')->before('auth');
+Route::get('users', 'UsersController@index')->before('auth');
+
+Route::get('profile', 'UsersController@profile')->before('auth');
