@@ -4,10 +4,10 @@ Route::get('/', ['as' => 'twits', 'uses' => 'TwitsController@index'])->before('a
 
 Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
 Route::post('login', 'SessionsController@store')->before('csrf');
-
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
 
 Route::get('twits', 'TwitsController@index')->before('auth');
+
 Route::get('users', 'UsersController@index')->before('auth');
 
 Route::get('profile', 'UsersController@profile')->before('auth');
