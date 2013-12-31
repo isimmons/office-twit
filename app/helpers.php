@@ -8,6 +8,7 @@
 function getNavLinks()
 {
     $navLinks = [
+        'Twits' => '/twits',
         'Profile' => '/profile',
         'Users' => '/users'
     ];
