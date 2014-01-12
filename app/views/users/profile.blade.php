@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    {{ dd($user) }}
+    <h2>Welcome {{ $user->username }}!</h2>
 @stop
