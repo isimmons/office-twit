@@ -110,8 +110,7 @@ return array(
 		//3rd party
 		'Way\Generators\GeneratorsServiceProvider',
 		'Way\Form\FormServiceProvider',
-		'Intouch\LaravelNewrelic\LaravelNewrelicServiceProvider',
-		
+				
 		//OfficeTwit
 		'OfficeTwit\OfficeTwitServiceProvider',
 	),
