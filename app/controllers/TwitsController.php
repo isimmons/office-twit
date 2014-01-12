@@ -42,9 +42,15 @@ class TwitsController extends BaseController {
 	 */
 	public function show($username)
 	{
-		$twits = Twit::where('user_id', '=', Auth::user()->id)->get();
+		if($username == Auth::user()->username)
+		{
+			$twits = Twit::where('user_id', '=', Auth::user()->id)->get();
 
-        		return View::make('twits.show', compact('twits'));
+        			return View::make('twits.show', compact('twits'));	
+		}
+
+		return Redirect::to('login');
+		
 	}
 
 	/**
