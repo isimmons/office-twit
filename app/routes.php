@@ -6,6 +6,8 @@ Route::group(['before' => 'auth'], function()
 
     Route::get('twits', 'TwitsController@index');
 
+    Route::get('twits/{username}', 'TwitsController@show');
+
     Route::get('users', 'UsersController@index');
 
     Route::get('profile', 'UsersController@profile');

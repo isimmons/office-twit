@@ -40,9 +40,11 @@ class TwitsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($username)
 	{
-        		return View::make('twits.show');
+		$twits = Twit::where('user_id', '=', Auth::user()->id)->get();
+
+        		return View::make('twits.show', compact('twits'));
 	}
 
 	/**

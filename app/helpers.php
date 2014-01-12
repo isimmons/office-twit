@@ -7,8 +7,10 @@
 */
 function getNavLinks()
 {
+    $username = Auth::user()->username;
     $navLinks = [
         'Twits' => '/twits',
+        'Me' => "/twits/{$username}",
         'Profile' => '/profile',
         'Users' => '/users'
     ];
