@@ -11,7 +11,7 @@ Route::group(['before' => 'auth'], function()
 
     Route::get('users', 'UsersController@index');
 
-    Route::get('profile', 'UsersController@profile');
+    Route::get('profile', 'UserProfilesController@show');
 });
 
 
