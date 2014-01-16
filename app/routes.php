@@ -11,7 +11,7 @@ Route::group(['before' => 'auth'], function()
 
     Route::get('users', 'UsersController@index');
 
-    Route::get('profile', 'UserProfilesController@show');
+    Route::get('profile', ['as' => 'user.profile.show', 'uses' => 'UserProfilesController@show']);
     Route::put('profile',  ['as' => 'user.profile.update', 'uses' => 'UserProfilesController@update'])->before('csrf');
 });
 
