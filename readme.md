@@ -15,6 +15,8 @@
 * Allow company admin to enable afore mentioned retweeting of company twits onto users personal feed
 
 ##Notes:
+* Looks like I need to move all of the user profile view to a view composer to deal with settings
+It's in a macro ATM but this will get ugly as settings grow to more than 'allow_twitter'
 * Not sure if want to list all signed up users at /users or just provide a search feature like Twitter does
 
 
