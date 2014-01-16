@@ -3,6 +3,9 @@
 ### UNSTABLE but amazingly works very well :-)
 
 #TODO
+* Go through entire project checking for SOLID principles
+* Check all endpoints for security
+* Do not remove the above two items until application is complete
 * Figure out how I want to implement public viewable profiles
 * Allow search for public viewable profiles from user who is not logged in (not sure?)
 * Create admin section with many configs for company IT administrator to be a Twit Nazi
