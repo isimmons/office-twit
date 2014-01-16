@@ -17,4 +17,10 @@ class UserProfilesController extends BaseController {
 
         return Redirect::to('login')->with('flash_message', 'you need to be logged in to see your profile foo!');
     }
+
+
+    public function update()
+    {
+        dd(Input::all());
+    }
 }
