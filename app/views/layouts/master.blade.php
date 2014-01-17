@@ -35,6 +35,10 @@
     </header>
     
  
+                <div class="flash">
+                    {{ Session::get('flash_message') }}
+                </div>
+ 
  
     
     <div class="container">
