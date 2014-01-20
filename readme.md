@@ -19,7 +19,7 @@
 * Switched to using UserPresenter to deal with user settings. Like the rest of the app it's a WIP
 * Not sure if want to list all signed up users at /users or just provide a search feature like Twitter does
 * down the road but need to learn and use http://apigen.org or http://www.phpdoc.org/
-
+* Yes the current background gradient is horrible
 
 ##Installation and usage
 This application has a development sqlite db pre-migrated with users and twits table. If you wish you can continue to use that for development. The two initial test users are "John" and "Sally". Both have a password of '1234'.
