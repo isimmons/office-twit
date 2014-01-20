@@ -48,7 +48,7 @@ class UserPresenter extends Presenter {
 
     public function settingDisabled($setting)
     {
-        if($this->settings->{$setting} !== false)
+        if(isset($this->settings->{$setting}) && $this->settings->{$setting} !== false)
             return true;
 
         return false;
