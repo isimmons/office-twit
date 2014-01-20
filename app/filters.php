@@ -35,7 +35,8 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('login')->with('flash_message', 'Please login first.');
+    if (Auth::guest()) return Redirect::to('login')
+        ->with('flash_message', Request::path() == '/' ? '' : 'Please login first.');
 });
 
 
