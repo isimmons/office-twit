@@ -10,8 +10,8 @@ class TwitsController extends BaseController {
 	public function index()
 	{
 		$twits = Twit::all();
-		$tweets = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=isimmons33&count=2';
-       		return View::make('twits.index', compact('twits', 'tweets'));
+		//$tweets = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=isimmons33&count=2';
+       		return View::make('twits.index', compact('twits'));
 	}
 
 	/**
