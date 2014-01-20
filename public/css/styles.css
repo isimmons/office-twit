@@ -1,4 +1,13 @@
+html{
+    height: 100%;
+}
+
 body {
+height: 100%;
+margin: 0;
+backgroud-repeat: no-repeat;
+background-attachment: fixed;
+
 background: #b1baae; /* Old browsers */
 background: -moz-radial-gradient(center, ellipse cover,  #b1baae 0%, #b2c4b0 0%, #62726a 100%, #b5ddcb 100%); /* FF3.6+ */
 background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#b1baae), color-stop(0%,#b2c4b0), color-stop(100%,#62726a), color-stop(100%,#b5ddcb)); /* Chrome,Safari4+ */
@@ -7,8 +16,6 @@ background: -o-radial-gradient(center, ellipse cover,  #b1baae 0%,#b2c4b0 0%,#62
 background: -ms-radial-gradient(center, ellipse cover,  #b1baae 0%,#b2c4b0 0%,#62726a 100%,#b5ddcb 100%); /* IE10+ */
 background: radial-gradient(ellipse at center,  #b1baae 0%,#b2c4b0 0%,#62726a 100%,#b5ddcb 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1baae', endColorstr='#b5ddcb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
 
 }
 
