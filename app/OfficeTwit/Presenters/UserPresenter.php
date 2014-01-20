@@ -1,6 +1,7 @@
 <?php namespace OfficeTwit\Presenters;
 
 use User;
+use Config;
 
 class UserPresenter extends Presenter {
 
@@ -11,12 +12,13 @@ class UserPresenter extends Presenter {
     public function __construct(User $resource)
     {
         $this->resource = $resource;
-        
+
         $this->settings = json_decode($this->resource->settings);
     } 
 
     public function twitterCheckbox()
     {
+        
         if(isset($this->settings->allowTwitter))
         {
             $checkbox = ($this->settings->allowTwitter)
@@ -42,5 +44,11 @@ class UserPresenter extends Presenter {
         }
         
         return $input;
+    }
+
+    protected function settingDisabled($setting)
+    {
+        $twit = Config::get('officeTwit.allowTwitter');
+        dd($twit);
     }   
 }
