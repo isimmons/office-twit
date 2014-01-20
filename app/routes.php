@@ -8,6 +8,7 @@ Route::group(['before' => 'auth'], function()
 
     //keep it alpha-numeric(remember to enforce this on username creation)
     Route::get('twits/{username}', 'TwitsController@show')->where('username', '[A-Za-z0-9]+');
+    Route::post('twits/{username}', 'TwitsController@store');
 
     Route::get('users', 'UsersController@index');
 
