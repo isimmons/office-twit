@@ -1,11 +1,11 @@
 ## OfficeTwit is a twitter clone built on Laravel PHP framework v 4.2
-### Yes that's right. I said 4.2 
-### UNSTABLE but amazingly works very well :-)
+### Yes that's right. I said 4.2 -- "laravel/framework": "4.2.*" 
+### UNSTABLE but works very well for now :-)
 
 #TODO
 * Go through entire project checking for SOLID principles
 * Check all endpoints for security
-* Do not remove the above two items until application is complete
+* Do not remove the above two items until application is ready for deploy
 * Figure out how I want to implement public viewable profiles
 * Allow search for public viewable profiles from user who is not logged in (not sure?)
 * Create admin section with many configs for company IT administrator to be a Twit Nazi
@@ -16,8 +16,7 @@
 
 
 ##Notes:
-* Looks like I need to move all of the user profile view to a view presenter to deal with settings
-It's in a macro ATM but this will get ugly as settings grow to more than 'allow_twitter'. It's already ugly
+* Switched to using UserPresenter to deal with user settings. Like the rest of the app it's a WIP
 * Not sure if want to list all signed up users at /users or just provide a search feature like Twitter does
 * down the road but need to learn and use http://apigen.org or http://www.phpdoc.org/
 
