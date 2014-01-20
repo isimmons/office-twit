@@ -46,9 +46,11 @@ class UserPresenter extends Presenter {
         return $input;
     }
 
-    protected function settingDisabled($setting)
+    public function settingDisabled($setting)
     {
-        $twit = Config::get('officeTwit.allowTwitter');
-        dd($twit);
+        if($this->settings->{$setting} !== false)
+            return true;
+
+        return false;
     }   
 }

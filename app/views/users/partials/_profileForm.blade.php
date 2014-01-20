@@ -7,6 +7,10 @@
 {{ FormField::oldPassword(['type' => 'password']) }}
 {{ FormField::password() }}
 <hr>
+
+@if(! $user->settingDisabled('allowTwitter'))
+    <p>Twitter settings have been disabled by the system administrator.</p>
+@else
 <div class="form-group">
     <label for="allowTwitter">Allow Twitter</label>
     {{ $user->twitterCheckbox }}
@@ -15,6 +19,9 @@
     <label for="twitterHandle">Twitter Handle</label>
     {{ $user->twitterHandle }}
 </div>
+@endif
+
+
 <hr>
 {{ Form::submit('Save Changes', ['class' => 'btn btn-lg btn-success pull-left']) }}
 {{ Form::close() }}
