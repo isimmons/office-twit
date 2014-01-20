@@ -1,6 +1,15 @@
 <?php
 
+use OfficeTwit\Services\Twits\TwitCreatorService;
+
 class TwitsController extends BaseController {
+
+	protected $twitCreator;
+
+	public function __construct(TwitCreatorService $twitCreator)
+	{
+		$this->twitCreator = $twitCreator;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -15,23 +24,19 @@ class TwitsController extends BaseController {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-        		return View::make('twits.create');
-	}
-
-	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		//
+		$user = Auth::user();
+
+		if($this->twitCreator->make(Input::all(), $user))
+			return Redirect::to('/twits/' . $user);
+
+		return Redirect::back()->withInput()->withErrors($this->twitCreator->getErrors());
+
 	}
 
 	/**
