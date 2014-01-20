@@ -21,6 +21,14 @@
 * down the road but need to learn and use http://apigen.org or http://www.phpdoc.org/
 
 
+##Installation and usage
+This application has a development sqlite db pre-migrated with users and twits table. If you wish you can continue to use that for development. The two initial test users are "John" and "Sally". Both have a password of '1234'.
+
+Download, run composer install and it should be ready to go using the development config settings unless the envrionment variable OFFICETWIT_ENV is set to production.
+
+##Tests
+I stink at TDD but have some basic starter tests in the tests directory and will be adding to and improving on them. 
+
 ## Official Documentation
 For OfficeTwit? There is none. But I did just upload a gh-pages with twitter bootstrap theme :-)
 http://isimmons.github.io/office-twit
