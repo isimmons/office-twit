@@ -6,27 +6,41 @@ class UserPresenter extends Presenter {
 
     protected $resource;
 
+    protected $settings;
+
     public function __construct(User $resource)
     {
         $this->resource = $resource;
+        
+        $this->settings = json_decode($this->resource->settings);
     } 
 
-    public function twitterSettings()
+    public function twitterCheckbox()
     {
-        //sample json settings: {"allowTwitter":"1","twitterHandle":"isimmons33"}
+        if(isset($this->settings->allowTwitter))
+        {
+            $checkbox = ($this->settings->allowTwitter)
+                ? '<input type="checkbox" name="allowTwitter" value="1" CHECKED />'
+                : '<input type="checkbox" name="allowTwitter" value="0" />';
+        }
+        else {
+            $checkbox = '<input type="checkbox" name="allowTwitter" value="0" />';
+        }
 
-//         $twitterSettings = <<<EOF
-// <div class="form-group">
-//     <label for="allow_twitter">Allow Twitter</label>
-//     <input type="checkbox" name="allowTwitter" value="1" CHECKED />
-// </div>
-// <div class="form-group">
-//     <label for="twitterHandle">Twitter Handle</label>
-//     <input type='text' name='twitterHandle' value='{$settings->twitterHandle}' class='form-control' />
-// </div>
-// EOF;
-//     return $twitterSettings;
+        return $checkbox;
+    }
+
+    public function twitterHandle()
+    {
+        if(isset($this->settings->twitterHandle))
+        {
+            $input = "<input type='text' name='twitterHandle' value='{$this->settings->twitterHandle}' class='form-control' />";
+        }
+        else
+        {
+            $input = '<input type="text" name="twitterHandle" class="form-control" />';
+        }
         
-        return $this->resource->settings;
+        return $input;
     }   
 }
