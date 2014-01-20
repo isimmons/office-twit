@@ -30,10 +30,11 @@ class TwitsController extends BaseController {
 	 */
 	public function store()
 	{
+		
 		$user = Auth::user();
 
 		if($this->twitCreator->make(Input::all(), $user))
-			return Redirect::to('/twits/' . $user);
+			return Redirect::to('/twits/' . $user->username);
 
 		return Redirect::back()->withInput()->withErrors($this->twitCreator->getErrors());
 

@@ -1,5 +1,7 @@
 <?php namespace OfficeTwit\Exceptions;
 
+use Exception;
+
 class ValidationException extends Exception {
     
     protected $errors;
@@ -9,5 +11,10 @@ class ValidationException extends Exception {
         $this->errors = $errors;
 
         parent::__construct($message, $code, $previous);
+    }
+
+    public function getErrors()
+    {
+        return $this->errors;
     }
 }

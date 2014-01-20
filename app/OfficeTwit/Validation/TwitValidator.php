@@ -2,10 +2,10 @@
 
 use OfficeTwit\Validation\Validator;
 
-class TwitValidation extends Validator {
+class TwitValidator extends Validator {
 
-    protected $rules = [
-        'body' => 'required'        
+    protected static $rules = [
+        'twit' => 'required'        
     ];
 
 
