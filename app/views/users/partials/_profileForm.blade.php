@@ -13,14 +13,13 @@
 @else
 <div class="form-group">
     <label for="allowTwitter">Allow Twitter</label>
-    {{ $user->twitterCheckbox }}
+    {{ Form::checkbox('allowTwitter', $user->getSettings->allowTwitter, $user->getSettings->allowTwitter) }}
 </div>
 <div class="form-group">
     <label for="twitterHandle">Twitter Handle</label>
-    {{ $user->twitterHandle }}
+    {{ Form::text('twitterHandle', $user->getSettings->twitterHandle, ['class' => 'form-control']) }}
 </div>
 @endif
-
 
 <hr>
 {{ Form::submit('Save Changes', ['class' => 'btn btn-lg btn-success pull-left']) }}

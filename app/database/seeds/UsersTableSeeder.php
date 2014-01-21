@@ -31,9 +31,9 @@ class UsersTableSeeder extends Seeder {
         protected function getDefaultSettings()
         {
             $settings = [
-                'allowTwitter' => '0',
+                'allowTwitter' => 1,
                 'twitterHandle' => null,
-                'publicEmail' => false
+                'publicEmail' => 0
             ];
 
             return json_encode($settings);

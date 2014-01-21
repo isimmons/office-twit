@@ -2,55 +2,36 @@
 
 use User;
 use Config;
+use OfficeTwit\Exceptions\BadSettingNameException;
 
 class UserPresenter extends Presenter {
 
     protected $resource;
 
-    protected $settings;
-
     public function __construct(User $resource)
     {
         $this->resource = $resource;
+    }
 
-        $this->settings = json_decode($this->resource->settings);
+    /**
+    * Returns user settings for use as a separate object
+    *
+    * @return stdClass $this->resource->settings
+    */
+    public function getSettings()
+    {
+        return json_decode($this->resource->settings);
     } 
 
-    public function twitterCheckbox()
-    {
-        
-        if(isset($this->settings->allowTwitter))
-        {
-            $checkbox = ($this->settings->allowTwitter)
-                ? '<input type="checkbox" name="allowTwitter" value="1" CHECKED />'
-                : '<input type="checkbox" name="allowTwitter" value="0" />';
-        }
-        else {
-            $checkbox = '<input type="checkbox" name="allowTwitter" value="0" />';
-        }
-
-        return $checkbox;
-    }
-
-    public function twitterHandle()
-    {
-        if(isset($this->settings->twitterHandle))
-        {
-            $input = "<input type='text' name='twitterHandle' value='{$this->settings->twitterHandle}' class='form-control' />";
-        }
-        else
-        {
-            $input = '<input type="text" name="twitterHandle" class="form-control" />';
-        }
-        
-        return $input;
-    }
-
+    
+    /**
+    * Checks if a user setting is disabled in the default app config
+    *
+    * @param string $setting
+    * @return mixed
+    */
     public function settingDisabled($setting)
     {
-        if(isset($this->settings->{$setting}) && $this->settings->{$setting} !== false)
-            return true;
-
-        return false;
+        return Config::get("officeTwit.{$setting}");                 
     }   
 }

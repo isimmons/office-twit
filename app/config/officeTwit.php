@@ -1,6 +1,6 @@
 <?php
 return [
 
-    'allowTwitter' => false,
-
+    'allowTwitter' => true,
+    
 ];
