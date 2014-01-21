@@ -1,4 +1,4 @@
-<?php namespace OfficeTwit\Services\Twits;
+<?php namespace OfficeTwit\Services\Twit;
 
 use OfficeTwit\Validation\TwitValidator;
 use OfficeTwit\Exceptions\ValidationException;

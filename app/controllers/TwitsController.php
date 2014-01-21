@@ -1,6 +1,6 @@
 <?php
 
-use OfficeTwit\Services\Twits\TwitCreatorService;
+use OfficeTwit\Services\Twit\TwitCreatorService;
 
 class TwitsController extends BaseController {
 
