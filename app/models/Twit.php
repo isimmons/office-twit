@@ -1,7 +1,7 @@
 <?php
 
 class Twit extends Eloquent {
-	protected $guarded = array();
+	protected $fillable = ['twit'];
 
-	public static $rules = array();
+	
 }
