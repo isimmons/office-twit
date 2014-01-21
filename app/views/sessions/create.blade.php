@@ -15,7 +15,7 @@
         </div>
 
         <div class="col-md-4">
-            @include('partials._loginform')
+            @include('sessions.partials._loginform')
         </div>
     </div>
     
