@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
+		"doctrine/dbal": "v2.4.2",
 		"way/generators": "dev-master",
 		"way/form": "dev-master"
 	},
