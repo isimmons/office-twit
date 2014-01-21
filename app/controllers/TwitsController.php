@@ -19,7 +19,7 @@ class TwitsController extends BaseController {
 	public function index()
 	{
 		$twits = Twit::all();
-		//$tweets = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=isimmons33&count=2';
+		
        		return View::make('twits.index', compact('twits'));
 	}
 
@@ -57,28 +57,6 @@ class TwitsController extends BaseController {
 
 		return Redirect::to('login');
 		
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-        		return View::make('twits.edit');
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
 	}
 
 	/**
