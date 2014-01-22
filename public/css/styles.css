@@ -41,7 +41,12 @@ header {
 
 a.forgot-password {
     float: left;
-    padding: 20px 10px;
+    padding: 10px 5px;
+}
+
+a.register-new {
+    float: right;
+    padding: 10px 5px;
 }
 
 .login-form-container {
@@ -55,5 +60,9 @@ a.forgot-password {
 
 .login-form-container .col-md-8 {
     border-right: 1px solid #333;
+}
+
+.register-form {
+    margin-top: 20%;
 }
 
