@@ -31,7 +31,12 @@ class UsersController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+	    $user = Auth::user();
+	    
+	    if($this->creator->create(Input::all(), $user))
+	        return Redirect::route('login')->with('flash_message', 'You can now login.');
+
+	    return Redirect::back()->withInput()->withErrors($this->creator->getErrors());
 	}
 
 	/**
