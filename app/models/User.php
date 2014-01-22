@@ -64,7 +64,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public function setPasswordAttribute($value)
 	{
-		$this->attributes['password'] = Hash::make($value);
+		//don't rehash already hashed password when user updates profile
+		if(Hash::needsRehash($value))
+			$this->attributes['password'] = Hash::make($value);
 	}
 
 	public function twits()
