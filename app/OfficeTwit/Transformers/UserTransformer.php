@@ -5,7 +5,7 @@ use User;
 class UserTransformer {
 
     /**
-    * Type cast input before use
+    * Type cast input and check fields before use
     *
     * @param $input array
     * @return $input array
@@ -14,7 +14,8 @@ class UserTransformer {
     {
         $input['password'] = $this->isPasswordUpdate($input) ? $input['password'] : $user->password;
         
-        $input['allowTwitter'] = (int) $input['allowTwitter'];
+        //set the checkbox value, probably need to run all settings through a class method or helper
+        $input['allowTwitter'] = isset($input['allowTwitter']) ? 1 : 0;
 
         return $input;
     }
