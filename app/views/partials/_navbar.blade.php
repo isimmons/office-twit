@@ -7,6 +7,9 @@
     <div class="collapse navbar-collapse" id="top-nav">
         <ul class="nav navbar-nav">
             {{ getNavLinks() }}
+            @if(Auth::check())
+                <li>{{ link_to('logout', 'Logout') }}</li>
+            @endif
         </ul>
 
         <form class="navbar-form navbar-right" role="search">
