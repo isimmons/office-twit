@@ -21,6 +21,21 @@ abstract class Validator {
         return true;
     }
 
+    public function isValidForUpdate(array $attributes)
+    {
+
+        $v = V::make($attributes, static::$updateRules);
+
+        if($v->fails())
+        {
+            $this->errors = $v->messages();
+            
+            throw new ValidationException('Validation failed.', $this->errors);
+        }            
+
+        return true;
+    }
+
     public function getErrors()
     {
         return $this->errors;
