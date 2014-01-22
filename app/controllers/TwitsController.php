@@ -32,6 +32,7 @@ class TwitsController extends BaseController {
 	{
 		
 		$user = Auth::user();
+		
 
 		if($this->twitCreator->make(Input::all(), $user))
 			return Redirect::to('/twits/' . $user->username);

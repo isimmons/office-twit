@@ -35,13 +35,11 @@ class TwitCreatorService {
     }
 
     protected function create($attributes, $user)
-    {
+    {                
         Twit::create([
             'twit' => $attributes['twit'],
             'user_id' => $user->id
-        ]);
-
-        
+        ]);        
     }
 
     public function getErrors()
