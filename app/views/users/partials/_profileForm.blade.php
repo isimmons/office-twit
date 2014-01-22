@@ -13,7 +13,7 @@
 @else
 <div class="form-group">
     <label for="allowTwitter">Allow Twitter</label>
-    {{ Form::checkbox('allowTwitter', $user->getSettings->allowTwitter, $user->getSettings->allowTwitter) }}
+    {{ Form::checkbox('allowTwitter', $user->getSettings->allowTwitter, $user->getSettings->allowTwitter, ['id' => 'allowTwitter']) }}
 </div>
 <div class="form-group">
     <label for="twitterHandle">Twitter Handle</label>

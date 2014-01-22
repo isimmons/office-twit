@@ -37,6 +37,7 @@ class UserCreatorService {
 
     public function update(array $attributes, User $user)
     {
+               
         try
         {
             $this->validator->isValidForUpdate($attributes);
@@ -88,6 +89,9 @@ class UserCreatorService {
 
     protected function getUpdatedSettings($attributes)
     {
+        //set the checkbox value, probably need to run all settings through a class method or helper
+        $attributes['allowTwitter'] = isset($attributes['allowTwitter']) ? 1 : 0;
+
         $settings = [
             'allowTwitter' => $attributes['allowTwitter'],
             'twitterHandle' => $attributes['twitterHandle']
