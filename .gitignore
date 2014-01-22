@@ -4,4 +4,4 @@ composer.phar
 .DS_Store
 Thumbs.db
 .idea
-/app/database/development.sqlite
+app/database/development.sqlite
