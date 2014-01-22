@@ -1,7 +1,7 @@
 <?php
 
 class Twit extends Eloquent {
-    protected $fillable = ['twit'];
+    protected $fillable = ['twit', 'user_id'];
 
     public function user()
     {
