@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder {
                             'password' => Hash::make('1234'),
                             'email' => 'john@twitmail.com',
                             'settings' => $this->getDefaultSettings(),
+                            'bio' => 'My name is John',
                             'created_at' => new DateTime,
                             'updated_at' => new DateTime
                         ],
@@ -20,6 +21,7 @@ class UsersTableSeeder extends Seeder {
                             'password' => Hash::make('1234'),
                             'email' => 'sally@twitmail.com',
                             'settings' => $this->getDefaultSettings(),
+                            'bio' => 'My name is Sally',
                             'created_at' => new DateTime,
                             'updated_at' => new DateTime
                         ]
