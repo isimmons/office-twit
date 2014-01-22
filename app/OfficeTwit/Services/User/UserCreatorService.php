@@ -2,6 +2,7 @@
 
 use OfficeTwit\Validation\UserValidator;
 use OfficeTwit\Exceptions\ValidationException;
+use OfficeTwit\Transformers\UserTransformer;
 use User;
 
 class UserCreatorService {
@@ -9,9 +10,13 @@ class UserCreatorService {
 
     protected $validator;
 
-    public function __construct(UserValidator $validator)
+    protected $transformer;
+
+    public function __construct(UserValidator $validator, UserTransformer $transformer)
     {
         $this->validator = $validator;
+
+        $this->transformer = $transformer;
     }
 
     public function make(array $attributes)
@@ -37,7 +42,8 @@ class UserCreatorService {
 
     public function update(array $attributes, User $user)
     {
-               
+        $attributes = $this->transformer->transformInput($attributes, $user);
+        
         try
         {
             $this->validator->isValidForUpdate($attributes);
@@ -66,7 +72,8 @@ class UserCreatorService {
     }
 
     protected function updateUser($attributes, $user)
-    {        
+    {
+        
         $user->username = $attributes['username'];
         $user->email = $attributes['email'];
         $user->password = $attributes['password'];
