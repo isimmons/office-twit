@@ -16,6 +16,7 @@
 
 
 ##Notes:
+* Ignoring development.sqlite until I finish making changes to the schema
 * Switched to using UserPresenter to deal with user settings. Like the rest of the app it's a WIP
 * Setting defaults instead of null or empty user settings string to avoid unnesessary complication in the logic
 * Not sure if want to list all signed up users at /users or just provide a search feature like Twitter does
