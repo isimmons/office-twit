@@ -1,17 +1,25 @@
 <?php
 
 use OfficeTwit\Presenters\UserPresenter;
+use OfficeTwit\Services\User\UserCreatorService;
 
 class UserProfilesController extends BaseController {
 
     /**
     * instance of OfficeTwit\Presenters\UserPresenter
     */
-    protected $userPresenter;
+    protected $presenter;
 
-    public function __construct(UserPresenter $userPresenter)
+    /**
+    * instance of OfficeTwit\Validation\UserCreatorService
+    */
+    protected $creator;
+
+    public function __construct(UserPresenter $presenter, UserCreatorService $creator)
     {
-        $this->userPresenter = $userPresenter;
+        $this->presenter = $presenter;
+
+        $this->creator = $creator;
     }
 
     /**
@@ -21,33 +29,18 @@ class UserProfilesController extends BaseController {
     */
     public function show()
     {
-            
-            $user = new $this->userPresenter(Auth::user());
+            $user = new $this->presenter(Auth::user());
             
             return View::make('users.profile', compact('user'));    
-        
-
-        //this should never fire because of auth filter on route but just in case...
-        //return Redirect::to('login')->with('flash_message', 'you need to be logged in to see your profile foo!');
-        
     }
 
+    public function update()
+    {
+        $user = Auth::user();
+        
+        if($this->creator->update(Input::all(), $user))
+            return Redirect::route('user.profile.show');
 
-    // public function update()
-    // {
-    //     $user = Auth::user();
-
-    //     if(Input::get('allowTwitter'))
-    //     {
-    //         $twitter = Input::get('allowTwitter');
-    //         $twitterHandle = Input::get('twitterHandle');
-    //         $settings = ['allowTwitter' => $twitter, 'twitterHandle' => $twitterHandle];
-            
-    //         //assume validated for now
-    //         $user->settings = json_encode($settings);
-    //         $user->save();
-    //     }
-
-    //     return Redirect::route('user.profile.show');
-    // }
+        return Redirect::back()->withInput()->withErrors($this->creator->getErrors());
+    }
 }
