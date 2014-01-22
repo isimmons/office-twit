@@ -21,3 +21,6 @@ Route::group(['before' => 'auth'], function()
 Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
 Route::post('login', 'SessionsController@store')->before('csrf');
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
+
+Route::get('register', 'UsersController@create');
+Route::post('register', 'UsersController@store')->before('csrf');
