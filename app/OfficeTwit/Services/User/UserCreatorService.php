@@ -16,6 +16,7 @@ class UserCreatorService {
 
     public function make(array $attributes)
     {
+
         try
         {
             $this->validator->isValid($attributes);
@@ -28,7 +29,7 @@ class UserCreatorService {
         }
 
         $attributes['settings'] = $this->getDefaultSettings();
-
+        
         $this->create($attributes);
 
         return true;
@@ -58,7 +59,8 @@ class UserCreatorService {
         User::create([
             'username' => $attributes['username'],
             'email' => $attributes['email'],
-            'password' => $attributes['password']
+            'password' => $attributes['password'],
+            'settings' => $attributes['settings']
         ]);        
     }
 
@@ -75,7 +77,13 @@ class UserCreatorService {
 
     protected function getDefaultSettings()
     {
-        //return the json encoded default settings for a new user
+        $settings = [
+            'allowTwitter' => 0,
+            'twitterHandle' => null,
+            'publicEmail' => 0
+        ];
+
+        return json_encode($settings);
     }
 
     protected function getUpdatedSettings($attributes)
