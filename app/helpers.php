@@ -29,3 +29,8 @@ function getNavLinks()
     return null;
 }
 
+function getGravitar($email, $size = 60)
+{
+    return 'https://s.gravatar.com/avatar/' . md5($email) . '?s=' . $size;
+}
+

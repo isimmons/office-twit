@@ -9,7 +9,10 @@
         <h2>My Twits</h2>
         <ul class="well">
             @foreach($twits as $twit)
-                <li>{{ $twit->twit }}</li>
+                <li>
+                    <img src="{{ getGravitar($user->getSettings->gravitar) }}">
+                    {{ $twit->twit }}
+                </li>
             @endforeach
         </ul>
     </div>

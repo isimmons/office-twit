@@ -100,7 +100,8 @@ class UserCreatorService {
 
         $settings = [
             'allowTwitter' => $attributes['allowTwitter'],
-            'twitterHandle' => $attributes['twitterHandle']
+            'twitterHandle' => $attributes['twitterHandle'],
+            'gravitar' => $attributes['gravitar']
         ];
 
         return json_encode($settings);

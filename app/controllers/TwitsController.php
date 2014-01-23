@@ -1,14 +1,19 @@
 <?php
 
 use OfficeTwit\Services\Twit\TwitCreatorService;
+use OfficeTwit\Presenters\UserPresenter;
 
 class TwitsController extends BaseController {
 
 	protected $twitCreator;
 
-	public function __construct(TwitCreatorService $twitCreator)
+          protected $presenter;
+
+	public function __construct(TwitCreatorService $twitCreator, UserPresenter $presenter)
 	{
 		$this->twitCreator = $twitCreator;
+
+                    $this->presenter = $presenter;
 	}
 
 	/**
@@ -19,8 +24,9 @@ class TwitsController extends BaseController {
 	public function index()
 	{
 		$twits = Twit::all();
+                    $user = new $this->presenter(Auth::user());
 		
-       		return View::make('twits.index', compact('twits'));
+       		return View::make('twits.index', compact('twits', 'user'));
 	}
 
 	/**
@@ -52,8 +58,8 @@ class TwitsController extends BaseController {
 		if($username == Auth::user()->username)
 		{
 			$twits = Twit::where('user_id', '=', Auth::user()->id)->get();
-
-        			return View::make('twits.show', compact('twits'));	
+                              $user = new $this->presenter(Auth::user());
+        			return View::make('twits.show', compact('twits', 'user'));	
 		}
 
 		return Redirect::to('login');
