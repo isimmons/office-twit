@@ -45,6 +45,8 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('admin', 'OfficeTwit\Filters\AdminFilter');
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
