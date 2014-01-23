@@ -112,7 +112,7 @@ return array(
 		'Way\Form\FormServiceProvider',
 				
 		//OfficeTwit
-		'OfficeTwit\OfficeTwitServiceProvider',
+		'OfficeTwit\Services\OfficeTwitServiceProvider',
 	),
 
 	/*

@@ -1,4 +1,4 @@
-<?php namespace OfficeTwit;
+<?php namespace OfficeTwit\Services;
 
 use Illuminate\Support\ServiceProvider;
 use View;

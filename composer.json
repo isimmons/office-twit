@@ -21,8 +21,12 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php"
 		],
-		"psr-0": {
-			"OfficeTwit": "app/"
+		"psr-4": {
+		          "OfficeTwit\\Services\\": "app/services",
+                              "OfficeTwit\\Presenters\\": "app/presenters",
+                              "OfficeTwit\\Validation\\": "app/validation",
+                              "OfficeTwit\\Transformers\\": "app/transformers",
+                              "OfficeTwit\\Exceptions\\": "app/exceptions"
 		},
 		"files": ["app/helpers.php"]
 	},
