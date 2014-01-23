@@ -22,8 +22,8 @@ class SessionsControllerTest extends TestCase {
     public function testLogoutRouteResponseIsOk()
     {
         $crawler = $this->client->request('GET', '/logout');
-
-        $this->assertTrue($this->client->getResponse()->isOk());
+        
+        $this->assertEquals('302', $this->client->getResponse()->getStatusCode());
     }
 
     /**

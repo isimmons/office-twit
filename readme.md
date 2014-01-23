@@ -19,6 +19,7 @@
 * Ignoring development.sqlite until I finish making changes to the schema
 * Switched to using UserPresenter to deal with user settings. Like the rest of the app it's a WIP
 * Started with idea of transformer for type casting but the transformInput method is really checking field values and not actually doing any transforming (type casting). Will make changes.
+* Unit tests since many changes to the application without testing. Oops I was bad :-( will fix 
 * Not sure if want to list all signed up users at /users or just provide a search feature like Twitter does
 * down the road but need to learn and use http://apigen.org or http://www.phpdoc.org/
 * Yes the current background gradient is horrible
