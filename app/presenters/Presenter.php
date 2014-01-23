@@ -1,6 +1,6 @@
 <?php namespace OfficeTwit\Presenters;
 
-abstract class Presenter {
+class Presenter {
     
     public function __get($name)
     {
