@@ -5,7 +5,7 @@
 <hr>
 <p>Change Password</p>
 {{ FormField::oldPassword(['type' => 'password']) }}
-{{ FormField::password() }}
+{{ FormField::newPassword(['type' => 'password']) }}
 <hr>
 
 @if(! $user->settingDisabled('allowTwitter'))

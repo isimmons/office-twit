@@ -12,7 +12,7 @@ class UserTransformer {
     */
     public function transformInput(array $input, User $user)
     {
-        $input['password'] = $this->isPasswordUpdate($input) ? $input['password'] : $user->password;
+        $input['password'] = $this->isPasswordUpdate($input) ? $input['newPassword'] : $user->password;
         
         //set the checkbox value, probably need to run all settings through a class method or helper
         $input['allowTwitter'] = isset($input['allowTwitter']) ? 1 : 0;
@@ -41,7 +41,7 @@ class UserTransformer {
     */
     protected function isPasswordUpdate(array $input)
     {
-        if(! empty($input['oldPassword']) && ! empty($input['password']))
+        if(! empty($input['oldPassword']) && ! empty($input['newPassword']))
             return true;
 
         return false;
