@@ -29,7 +29,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="gravitar">Gravitar Email</label>
-            {{ Form::text('gravitar', $user->getSettings->gravitar, ['class' => 'form-control']) }}
+            {{ Form::text('gravitar', $user->gravitar, ['class' => 'form-control']) }}
         </div>
     </div><!--end .col-md-4-->
 </div><!--end .container-->

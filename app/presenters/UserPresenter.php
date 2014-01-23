@@ -33,5 +33,14 @@ class UserPresenter extends Presenter {
     public function settingDisabled($setting)
     {
         return Config::get("officeTwit.{$setting}");                 
+    }
+
+    public function gravitar($size = 60)
+    {
+        $settings = $this->getSettings();
+
+        $gravitar = isset($settings->gravitar) ? $settings->gravitar : null;
+
+        return $gravitar;
     }   
 }

@@ -11,7 +11,7 @@
         <ul class="well">
             @foreach($twits as $twit)
                 <li>
-                    <img src="{{ getGravitar($user->getSettings->gravitar) }}">
+                    <img src="{{ getGravitar($user->gravitar) }}">
                     {{ $twit->twit }}
                 </li>
             @endforeach
