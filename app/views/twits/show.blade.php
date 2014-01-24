@@ -16,8 +16,7 @@
                     </div>
                    <div class="twit">
                         {{ $twit->twit }} 
-                   </div>
-                                      
+                   </div>                                      
                 </li>
                 <hr class="twit-separator">
             @endforeach
