@@ -11,7 +11,7 @@ class TwitsController extends BaseController {
 
     public function __construct(TwitCreatorService $creator, UserPresenter $presenter)
     {
-        $this->twitCreator = $creator;
+        $this->creator = $creator;
         $this->presenter = $presenter;
     }
 
