@@ -66,3 +66,47 @@ a.register-new {
     margin-top: 20%;
 }
 
+.timeline ul {
+    list-style: none;
+}
+
+.timeline ul li {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
+   /* border-bottom: 1px solid #666;*/
+}
+
+.timeline .twit-user {
+    height: 20px;
+
+    float: left;
+}
+
+.timeline img {
+    float:left;
+    margin-bottom: 10px;
+}
+
+.timeline .twit-handle {
+
+    float: right;
+    margin-left: 10px;
+
+}
+
+.timeline .twit {
+   margin-top: 30px;
+   margin-left: 70px;
+   clear: right;
+}
+
+.timeline hr.twit-separator {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-top: 1px solid #666;
+
+}
+
+
+
