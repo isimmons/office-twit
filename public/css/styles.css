@@ -77,35 +77,30 @@ a.register-new {
    /* border-bottom: 1px solid #666;*/
 }
 
-.timeline .twit-user {
-    height: 20px;
-
+.timeline .twit-gravitar {
     float: left;
-}
-
-.timeline img {
-    float:left;
-    margin-bottom: 10px;
-}
-
-.timeline .twit-handle {
-
-    float: right;
-    margin-left: 10px;
-
+    width: 60px;
 }
 
 .timeline .twit {
-   margin-top: 30px;
-   margin-left: 70px;
-   clear: right;
+   float: left;
+   width: 320px;
+   margin-left: 10px;   
+}
+
+.timeline .twit-handle {
+    width: 100%;
+    float: left;
+}
+
+.timeline .twit-text {
+
 }
 
 .timeline hr.twit-separator {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 5px;
     border-top: 1px solid #666;
-
 }
 
 

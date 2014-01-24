@@ -12,14 +12,13 @@
             
             @foreach($twits as $twit)
                 <li>
-                    <div class="twit-user">
-                        <img src="{{ getGravitar($twit->user->gravitar) }}">
-                        <span class="twit-handle">{{ '@' . $twit->user->username }}</span> 
+                    <div class="twit-gravitar">
+                        <img src="{{ getGravitar($twit->user->gravitar) }}">                         
                     </div>
                    <div class="twit">
-                        {{ $twit->twit }} 
-                   </div>
-                                      
+                        <div class="twit-handle">{{ '@' . $twit->user->username }}</div>
+                        <div class="twit-text">{{ $twit->twit }}</div> 
+                   </div>                                      
                 </li>
                 <hr class="twit-separator">
             @endforeach
