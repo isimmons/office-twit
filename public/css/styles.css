@@ -103,5 +103,16 @@ a.register-new {
     border-top: 1px solid #666;
 }
 
+.users-list li {
+    list-style: none;
+    padding: 5px;
+}
+
+.users-list img {
+    margin-right: 10px;
+}
+
+
+
 
 
