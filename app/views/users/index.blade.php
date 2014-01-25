@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Office Twit | All Users
+@stop
+
 @section('content')
     <div class="col-md-4 well">
         <ul class="users-list">
