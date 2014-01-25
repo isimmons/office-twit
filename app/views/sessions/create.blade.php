@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-    Office Twit | Login
-@stop
-
 @section('content')
     <div class="login-form-container">
         <div class="col-md-8">

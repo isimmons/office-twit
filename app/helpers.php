@@ -34,3 +34,16 @@ function getGravitar($email, $size = 60)
     return 'https://s.gravatar.com/avatar/' . md5($email) . '?s=' . $size;
 }
 
+function getPageTitle()
+{
+    $title = null;
+    $url = Request::server('PATH_INFO');
+    $parts = explode('/', $url);
+
+    foreach ($parts as $part) {
+        $title .= ucfirst($part) . '  ';
+    }
+    
+    return $title;
+}
+

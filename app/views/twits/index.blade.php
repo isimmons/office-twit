@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-    Office Twit | Public Twits
-@stop
-
 @section('content')
     <div class="col-md-6 timeline">
          @include('twits.partials._timelineSideBar')
