@@ -48,7 +48,12 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+    Log::error($exception);
+});
+
+App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
+{
+    return Redirect::to('/')->with('flash_message', 'Sorry - the requested resource was not found.');
 });
 
 /*
