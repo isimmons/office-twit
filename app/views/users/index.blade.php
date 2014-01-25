@@ -6,7 +6,7 @@
             @foreach($users as $user)
                 <li>
                     <img src="{{ getGravitar($user->gravitar) }}">
-                    {{ $user->username }}
+                    {{link_to('/twits/'.$user->username, '@'.$user->username) }}
                 </li>
             @endforeach
         </ul>

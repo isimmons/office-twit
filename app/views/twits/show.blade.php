@@ -14,7 +14,9 @@
                         <img src="{{ getGravitar($twit->user->gravitar) }}">                         
                     </div>
                    <div class="twit">
-                        <div class="twit-handle">{{ '@' . $twit->user->username }}</div>
+                        <div class="twit-handle">
+                            {{link_to('/twits/'.$twit->user->username, '@'.$twit->user->username) }}
+                        </div>
                         <div class="twit-text">{{ $twit->twit }}</div> 
                    </div>                                      
                 </li>
