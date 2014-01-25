@@ -54,14 +54,17 @@ class TwitsController extends BaseController {
      */
     public function show($username)
     {
-        if ($username == Auth::user()->username) {
-            $twits = Twit::where('user_id', '=', Auth::user()->id)->with('user')->get();
+        if (Auth::check()) {
+            
+            $user = User::where('username', '=', $username)->firstOrFail();
+            
+            $twits = Twit::where('user_id', '=', $user->id)->with('user')->get();
 
             foreach ($twits as $twit) {
                 $twit->user = new $this->presenter($twit->user);
-            }
-        
-            return View::make('twits.show', compact('twits'));	
+            }            
+
+            return View::make('twits.show', compact('twits'));
         }
 
         return Redirect::to('login');    	
