@@ -21,8 +21,7 @@ class UsersController extends BaseController {
      * @return Response
      */
     public function index()
-    {
-         
+    {         
         $users = new $this->collection('OfficeTwit\Presenters\UserPresenter', User::all());
         
         return View::make('users.index', compact('users'));
@@ -31,17 +30,17 @@ class UsersController extends BaseController {
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Response Illuminate\View\View
      */
     public function create()
     {
-        		return View::make('users.create');
+        return View::make('users.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return Redirect
      */
     public function store()
     {
@@ -55,29 +54,29 @@ class UsersController extends BaseController {
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return Response Illuminate\View\View
      */
     public function show($id)
     {
-        		return View::make('users.show');
+        return View::make('users.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return Response Illuminate\View\View
      */
     public function edit($id)
     {
-        		return View::make('users.edit');
+        return View::make('users.edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return Response Illuminate\View\View
      */
     public function update($id)
     {
@@ -94,7 +93,4 @@ class UsersController extends BaseController {
     {
     	//
     }
-
-
-
 }
