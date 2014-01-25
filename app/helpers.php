@@ -36,7 +36,8 @@ function getGravitar($email, $size = 60)
 
 function getPageTitle()
 {
-    $title = null;
+    //set the default from the application config file
+    $title = Config::get('officeTwit.appName') . ' | ';
     $url = Request::server('PATH_INFO');
     $parts = explode('/', $url);
 

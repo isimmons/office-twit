@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">Office Twit!</a>
+        <a class="navbar-brand" href="#">{{ Config::get('officeTwit.appName') }}</a>
         <a class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">&#9776;</a>
     </div><!--./ .navbar-header-->
 
