@@ -2,6 +2,7 @@
 
 use OfficeTwit\Services\Twit\TwitCreatorService;
 use OfficeTwit\Presenters\UserPresenter;
+use OfficeTwit\Presenters\CollectionPresenter;
 
 class TwitsController extends BaseController {
 
@@ -22,13 +23,24 @@ class TwitsController extends BaseController {
      */
     public function index()
     {
-        $twits = Twit::with('user')->get();
+        $userId = Auth::user()->id;
+        
+        $follows = Follow::where('user_id', '=', $userId)->get();
 
-        foreach ($twits as $twit) {
-            $twit->user = new $this->presenter($twit->user);
+        $userIds = [];
+        foreach ($follows as $follow) {
+            $userIds[] = $follow->follow_id;
         }
-        		
-        return View::make('twits.index', compact('twits'));
+        
+        $users = User::whereIn('id', $userIds)
+            ->orWhere('id', '=', Auth::user()->id)
+            ->with('twits')
+            ->get();
+        
+        
+        $users = new CollectionPresenter('OfficeTwit\Presenters\UserPresenter', $users);
+        
+        return View::make('twits.index', compact('users'));
     }
 
     /**

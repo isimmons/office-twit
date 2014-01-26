@@ -11,6 +11,8 @@ Route::group(['before' => 'auth'], function()
     Route::post('twits/{username}', 'TwitsController@store')->before('csrf');
 
     Route::get('users', 'UsersController@index');
+    Route::get('users/{username}/follow', 'UsersController@followUser');
+    Route::get('users/{username}/unfollow', 'UsersController@unfollowUser');
 
     Route::get('profile', ['as' => 'user.profile.show', 'uses' => 'UserProfilesController@show']);
     Route::put('profile',  ['as' => 'user.profile.update', 'uses' => 'UserProfilesController@update'])->before('csrf');

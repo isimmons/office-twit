@@ -1,6 +1,6 @@
 <?php namespace OfficeTwit\Presenters;
 
-abstract class Presenter {
+class Presenter {
     
     public function __get($name)
     {
@@ -10,6 +10,14 @@ abstract class Presenter {
         }
 
         return $this->resource->{$name};
+    }
+
+    public function __call($name, $arguments)
+    {
+        if(method_exists($this, $name))
+        {
+            return $this->{$name}();
+        }
     }
 
     public function getObject()

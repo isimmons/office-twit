@@ -57,3 +57,28 @@ function getFlash(array $message)
     return "<div class='flash_{$key}'>{$message[$key]}</div>";
 }
 
+function getFollowLink($user)
+{
+    //no follow link if username is self
+    if(Auth::user()->username == $user->username)
+        return null;
+
+    //see if logged in user is already following
+    $following = false; 
+    foreach ($user->followers as $follower) {
+        if (Auth::user()->username == $follower->username) {
+            $following = true;
+        }
+    }
+
+    $text = $following === true ? 'unfollow' : 'follow';
+    $btnType = $following === true ? ' btn-primary ' : ' btn-success ';
+
+    $link = link_to(
+        "users/{$user->username}/{$text}",
+        ucfirst($text) . ' ' . ucfirst($user->username),
+        ['class' => 'btn' .  $btnType  . 'btn-follow']);
+
+    return $link;
+}
+

@@ -45,7 +45,7 @@ class UsersController extends BaseController {
     public function store()
     {
         if($this->creator->make(Input::all()))
-            return Redirect::route('login')->with('flash_message', 'You can now login.');
+            return Redirect::route('login')->with('flash_message', ['success' => 'You can now login.']);
 
         return Redirect::back()->withInput()->withErrors($this->creator->getErrors());
     }
@@ -92,5 +92,29 @@ class UsersController extends BaseController {
     public function destroy($id)
     {
     	//
+    }
+
+    public function followUser($username)
+    {
+        $user = User::where('username', '=', $username)->firstOrFail();
+
+        $me = Auth::user();
+
+        $me->follows()->attach($user);
+
+        return Redirect::back();
+    }
+
+    public function unfollowUser($username)
+    {
+        $user = User::where('username', '=', $username)->firstOrFail();
+
+        $me = Auth::user();
+
+        $me->follows()->detach($user);
+
+        return Redirect::back();
+        
+
     }
 }

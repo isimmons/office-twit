@@ -120,3 +120,7 @@ a.register-new {
 
 .flash_success{top:70px;width:100%;position:absolute;z-index:10000;background:#47a447;color:#fff;border:none;border-radius:0;padding:18px 40px}
 .flash_success i{margin-right:20px;vertical-align:middle;display:inline-block}
+
+.btn-follow {
+    margin-bottom: 10px;
+}
