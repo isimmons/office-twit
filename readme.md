@@ -3,6 +3,7 @@
 ### UNSTABLE but works very well for now :-)
 
 #TODO
+* BIG TODO: redo all styles for correct organization, deduplication, refactor, etc.
 * Go through entire project checking for SOLID principles
 * Check all endpoints for security
 * Do not remove the above two items until application is ready for deploy
