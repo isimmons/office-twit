@@ -64,7 +64,7 @@ class TwitsController extends BaseController {
                 $twit->user = new $this->presenter($twit->user);
             }            
 
-            return View::make('twits.show', compact('twits'));
+            return View::make('twits.show', compact('twits', 'user'));
         }
 
         return Redirect::to('login');    	

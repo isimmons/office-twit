@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-md-6 timeline">
-        <h2>My Twits</h2>
+        <h2>{{ucfirst($user->username)}}'s Twits</h2>
         <ul class="well">
             @foreach($twits as $twit)
                 <li>
