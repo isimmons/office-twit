@@ -48,3 +48,12 @@ function getPageTitle()
     return $title;
 }
 
+function getFlash(array $message)
+{
+    //get the first key
+    reset($message);
+    $key = key($message);
+    
+    return "<div class='flash_{$key}'>{$message[$key]}</div>";
+}
+

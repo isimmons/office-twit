@@ -5,7 +5,7 @@
         @yield('navbar.append')
     </div>
 </header>
-    
-<div class="flash">
-    {{ Session::get('flash_message') }}
-</div>
+
+@if(Session::has('flash_message'))    
+    {{ getFlash(Session::get('flash_message')) }}
+@endif

@@ -25,11 +25,11 @@ class SessionsController extends BaseController {
 		
 		if(Auth::attempt($input))
 		{
-			return Redirect::to('twits')->with('flash_message', 'You are logged in.');	
+			return Redirect::to('twits')->with('flash_message', ['success' => 'You are logged in.']);	
 		}
 
 		return Redirect::back()
-			->with('flash_error', 'Sorry the username/password combination is incorrect.')
+			->with('flash_message', ['error' => 'Sorry the username/password combination is incorrect.'])
 			->withInput();
 
 		
