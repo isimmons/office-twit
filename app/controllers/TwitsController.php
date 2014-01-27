@@ -27,12 +27,12 @@ class TwitsController extends BaseController {
         
         $follows = Follow::where('user_id', '=', $userId)->get();
 
-        $userIds = [];
+        $followIds = [];
         foreach ($follows as $follow) {
-            $userIds[] = $follow->follow_id;
+            $followIds[] = $follow->follow_id;
         }
         
-        $users = User::whereIn('id', $userIds)
+        $users = User::whereIn('id', $followIds)
             ->orWhere('id', '=', Auth::user()->id)
             ->with('twits')
             ->get();
