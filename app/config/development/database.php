@@ -1,14 +1,22 @@
 <?php
 
 return array(
-    'default' => 'sqlite',
+
+    'default' => 'mysql',
+
+   
 
     'connections' => array(
 
-        'sqlite' => array(
-            'driver'   => 'sqlite',
-            'database' => __DIR__.'/../../database/development.sqlite',
-            'prefix'   => '',
-        ),
+        'mysql' => array(
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'officetwit',
+            'username'  => 'lotus',
+            'password'  => '123Glamdring456',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        )
     )
 );
