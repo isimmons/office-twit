@@ -11,14 +11,14 @@
         
         
         <ul class="well">
-            @foreach($twits as $twit)
+            @foreach($user->twits as $twit)
                 <li>
                     <div class="twit-gravitar">
-                        <img src="{{ getGravitar($twit->user->gravitar) }}">                         
+                        <img src="{{ getGravitar($user->gravitar) }}">                         
                     </div>
                    <div class="twit">
                         <div class="twit-handle">
-                            {{link_to('/twits/'.$twit->user->username, '@'.$twit->user->username) }}
+                            {{link_to('/twits/'.$user->username, '@'.$user->username) }}
                         </div>
                         <div class="twit-text">{{ $twit->twit }}</div> 
                    </div>                                      

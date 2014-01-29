@@ -23,24 +23,21 @@ class TwitsController extends BaseController {
      */
     public function index()
     {
-        $userId = Auth::user()->id;
-        
-        $follows = Follow::where('user_id', '=', $userId)->get();
-
-        $followIds = [];
-        foreach ($follows as $follow) {
-            $followIds[] = $follow->follow_id;
-        }
-        
-        $users = User::whereIn('id', $followIds)
-            ->orWhere('id', '=', Auth::user()->id)
-            ->with('twits')
+        $twits = Twit::select(['twits.*', 'users.*'])
+            ->join('users', 'twits.user_id', '=', 'users.id')
+            ->leftJoin('user_follows', 'users.id', '=', 'user_follows.follow_id')
+            ->where('user_follows.user_id', '=', Auth::user()->id)
+            ->orWhere('users.id', '=', Auth::user()->id)
+            ->orderBy('twits.created_at', 'DESC')
+            ->with('user')
             ->get();
-        
-        
-        $users = new CollectionPresenter('OfficeTwit\Presenters\UserPresenter', $users);
-        
-        return View::make('twits.index', compact('users'));
+
+        foreach($twits as $twit)
+        {
+            $twit->user = new $this->presenter($twit->user);
+        }
+
+        return View::make('twits.index', compact('twits'));
     }
 
     /**
@@ -66,19 +63,11 @@ class TwitsController extends BaseController {
      */
     public function show($username)
     {
-        if (Auth::check()) {
+            $user = User::with('twits')->where('username', '=', $username)->firstOrFail();
+                       
+            $user = new $this->presenter($user);
             
-            $user = User::where('username', '=', $username)->firstOrFail();
-            
-            $twits = Twit::where('user_id', '=', $user->id)->with('user')->get();
-
-            foreach ($twits as $twit) {
-                $twit->user = new $this->presenter($twit->user);
-            }            
-
-            return View::make('twits.show', compact('twits', 'user'));
-        }
-
-        return Redirect::to('login');    	
+            return View::make('twits.show', compact('user'));
+         	
     }
 }

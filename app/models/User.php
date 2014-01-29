@@ -71,7 +71,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function twits()
     {
-        return $this->hasMany('Twit')->orderBy('created_at', 'DESC');
+        return $this->hasMany('Twit');
     }
 
     /**
@@ -79,7 +79,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     */
     public function follows()
     {
-        return $this->belongsToMany('User', 'user_follows', 'user_id', 'follow_id')->withTimestamps();
+        return $this->belongsToMany('User', 'user_follows', 'user_id', 'follow_id')
+            ->withTimestamps();
     }
 
     /**
@@ -89,7 +90,5 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return $this->belongsToMany('User', 'user_follows', 'follow_id', 'user_id');
     }
-
-
 
 }

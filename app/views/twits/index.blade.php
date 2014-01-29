@@ -9,23 +9,20 @@
     <div class="col-md-6 timeline">
         <h2>Public Twits</h2>
         <ul class="well">
-            @foreach($users as $user)
-                @foreach($user->twits as $twit)
+             @foreach($twits as $twit)                
                 <li>
                     <div class="twit-gravitar">
-                        <img src="{{ getGravitar($user->gravitar) }}">                         
+                        <img src="{{ getGravitar($twit->user->gravitar) }}">                         
                     </div>
                    <div class="twit">
                         <div class="twit-handle">
-                            {{link_to('/twits/'.$user->username, '@'.$user->username) }}
+                            {{link_to('/twits/'.$twit->username, '@'.$twit->username) }}
                         </div>
                         <div class="twit-text">{{ $twit->twit }}</div> 
                    </div>                                      
                 </li>
-                <hr class="twit-separator">
-                @endforeach
-            @endforeach
-           
+                <hr class="twit-separator">                
+            @endforeach           
         </ul>
     </div>
 @stop

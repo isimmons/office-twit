@@ -62,5 +62,16 @@
         s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
     -->
+    <script type="text/javascript">
+    //http://stackoverflow.com/questions/14536165/get-the-query-executed-in-laravel-3-4
+    var queries = {{ json_encode(DB::getQueryLog()) }};
+    console.log('/****************************** Database Queries ******************************/');
+    console.log(' ');
+    queries.forEach(function(query) {
+        console.log(/*'   ' + query.time + ' | ' + */query.query + ' | Bindings: ' + query.bindings[0]);
+    });
+    console.log(' ');
+    console.log('/****************************** End Queries ***********************************/');
+</script>
 </body>
 </html>
