@@ -3,11 +3,11 @@
 ### UNSTABLE but works very well for now :-)
 
 #TODO
-* BIG TODO: redo all styles for correct organization, deduplication, refactor, etc.
+* BIG TODO: VALIDATE ALL THE THINGS - Working on it now that other things are working correctly.
+* Redo all styles for correct organization, deduplication, refactor, etc.
 * Go through entire project checking for SOLID principles
-* Check all endpoints for security
-* Do not remove the above two items until application is ready for deploy
-* Figure out how I want to implement public viewable profiles
+* Check all endpoints for security (csrf, xss, auth required pages)
+* Do not remove the above items until application is ready for deploy
 * Allow search for public viewable profiles from user who is not logged in (not sure?)
 * Create admin section with many configs for company IT administrator to be a Twit Nazi
 * Allow user config to show own personal twitter feed side by side with company feed
@@ -17,18 +17,26 @@
 
 
 ##Notes:
-* Ignoring development.sqlite until I finish making changes to the schema
+* Was using sqlite for development until I ran into a query issue, now Mysql
 * Switched to using UserPresenter to deal with user settings. Like the rest of the app it's a WIP
-* Started with idea of transformer for type casting but the transformInput method is really checking field values and not actually doing any transforming (type casting). Will make changes.
+* Started with idea of transformer for type casting but the transformInput method is really checking field values and not actually doing any transforming (type casting). Will make changes
 * Unit tests since many changes to the application without testing. Oops I was bad :-( will fix 
 * Not sure if want to list all signed up users at /users or just provide a search feature like Twitter does
 * down the road but need to learn and use http://apigen.org or http://www.phpdoc.org/
 * Yes the current background gradient is horrible
 
 ##Installation and usage
-This application has a development sqlite db pre-migrated with users and twits table. If you wish you can continue to use that for development. The two initial test users are "John" and "Sally". Both have a password of '1234'.
+1. Download and extract or clone the repo
+2. Run `composer update` to get the latest framework and install required packages
+3. Create a database and fill in the required info in config/development/database.php
+4. Run `php artisan migrate`
+5. Run `php artisan db:seed` (comes with test users John and Sally)
+6. Run `php artisan serve` (So far this app is simple enough to run on the built in server)
+7. Open a browser to `http://localhost:8000`
+8. Mess around with it and then come complain in the issues because this app is not ready for production and probably full of bugs :-)
 
-Download, run composer install and it should be ready to go using the development config settings unless the envrionment variable OFFICETWIT_ENV is set to production.
+You can register a new user (no verification implemented at this time) or use the test users provided in the seed file.
+
 
 ##Tests
 I stink at TDD but have some basic starter tests in the tests directory and will be adding to and improving on them. 
