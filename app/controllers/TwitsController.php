@@ -22,16 +22,18 @@ class TwitsController extends BaseController {
      * @return Response Illuminate\View\View
      */
     public function index()
-    {
-        $twits = Twit::select(['twits.*', 'users.*'])
-            ->join('users', 'twits.user_id', '=', 'users.id')
-            ->leftJoin('user_follows', 'users.id', '=', 'user_follows.follow_id')
-            ->where('user_follows.user_id', '=', Auth::user()->id)
-            ->orWhere('users.id', '=', Auth::user()->id)
-            ->orderBy('twits.created_at', 'DESC')
-            ->with('user')
-            ->get();
+    {  
+        $twits = Twit::whereIn('user_id', function($query)
+        {
+            $query->select('follow_id')
+                ->from('user_follows')
+                ->where('user_id', Auth::user()->id);
+        })->orWhere('user_id', Auth::user()->id)
+        ->with('user')
+        ->orderBy('created_at', 'DESC')
+        ->get();
 
+        //need users converted to UserPresenters for parse settings and get avitar
         foreach($twits as $twit)
         {
             $twit->user = new $this->presenter($twit->user);

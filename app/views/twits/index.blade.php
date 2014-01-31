@@ -16,7 +16,7 @@
                     </div>
                    <div class="twit">
                         <div class="twit-handle">
-                            {{link_to('/twits/'.$twit->username, '@'.$twit->username) }}
+                            {{link_to('/twits/'.$twit->user->username, '@'.$twit->user->username) }}
                         </div>
                         <div class="twit-text">{{ $twit->twit }}</div> 
                    </div>                                      
