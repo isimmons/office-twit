@@ -110,6 +110,7 @@ return array(
 		//3rd party
 		'Way\Generators\GeneratorsServiceProvider',
 		'Way\Form\FormServiceProvider',
+                    'Thujohn\Twitter\TwitterServiceProvider',
 				
 		//OfficeTwit
 		'OfficeTwit\Services\OfficeTwitServiceProvider',
@@ -181,6 +182,7 @@ return array(
 
 		//3rd party
 		'Newrelic'        => 'Intouch\LaravelNewrelic\Facades\Newrelic',
+                    'Twitter' => 'Thujohn\Twitter\TwitterFacade',
 
 	),
 

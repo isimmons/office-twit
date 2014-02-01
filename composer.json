@@ -6,6 +6,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"doctrine/dbal": "v2.4.2",
+                    "thujohn/twitter": "dev-master",
 		"way/generators": "dev-master",
 		"way/form": "dev-master"
 	},
