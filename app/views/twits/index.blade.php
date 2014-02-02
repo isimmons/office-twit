@@ -1,13 +1,9 @@
-@extends('layouts.master')
-
-@section('content')
-    <div class="col-md-6 timeline">
-         @include('twits.partials._timelineSideBar')
-    </div>
+@extends((isset($publicTweets) and $publicTweets !== false)  ? 'layouts.two_column' :'layouts.master')
 
 
-    <div class="col-md-6 timeline">
+@section('left-content')
         <h2>Public Twits</h2>
+        
         <ul class="well">
              @foreach($twits as $twit)                
                 <li>
@@ -24,5 +20,24 @@
                 <hr class="twit-separator">                
             @endforeach           
         </ul>
-    </div>
+   
+    
+@stop
+
+@section('right-content')
+            <h2>Twitter Timeline</h2>
+             <ul class="well">
+                    @foreach($publicTweets as $tweet)
+                        <li>
+                            <div class="twit-gravitar">
+                                <img src="{{ $tweet->user->profile_image_url }}">                         
+                            </div>
+                            <div class="twit-text">
+                                {{ Twitter::linkify($tweet->text) }}
+                            </div>                            
+                        </li>
+                        <hr class="twit-separator">
+                    @endforeach
+                </ul>
+              
 @stop

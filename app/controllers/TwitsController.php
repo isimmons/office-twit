@@ -3,17 +3,22 @@
 use OfficeTwit\Services\Twit\TwitCreatorService;
 use OfficeTwit\Presenters\UserPresenter;
 use OfficeTwit\Presenters\CollectionPresenter;
+use OfficeTwit\Services\TwitterService;
 
 class TwitsController extends BaseController {
 
     protected $creator;
     protected $presenter;
+    protected $twitter;
 
-    public function __construct(TwitCreatorService $creator, UserPresenter $presenter)
+    public function __construct(
+        TwitCreatorService $creator, UserPresenter $presenter, TwitterService $twitter)
     {
         $this->creator = $creator;
 
         $this->presenter = $presenter;
+
+        $this->twitter = $twitter;
     }
 
     /**
@@ -39,7 +44,9 @@ class TwitsController extends BaseController {
             $twit->user = new $this->presenter($twit->user);
         }
 
-        return View::make('twits.index', compact('twits'));
+        $publicTweets = $this->twitter->getTimeline();
+        
+        return View::make('twits.index', compact('twits', 'publicTweets'));
     }
 
     /**
