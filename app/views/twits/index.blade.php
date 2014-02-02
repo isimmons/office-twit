@@ -25,19 +25,23 @@
 @stop
 
 @section('right-content')
-            <h2>Twitter Timeline</h2>
-             <ul class="well">
-                    @foreach($publicTweets as $tweet)
-                        <li>
-                            <div class="twit-gravitar">
-                                <img src="{{ $tweet->user->profile_image_url }}">                         
-                            </div>
-                            <div class="twit-text">
-                                {{ Twitter::linkify($tweet->text) }}
-                            </div>                            
-                        </li>
-                        <hr class="twit-separator">
-                    @endforeach
-                </ul>
-              
+<h2>    
+    <a href="https://twitter.com/{{ $user->getSettings->twitterHandle }}" target='_blank'>
+        &#x00040;{{$user->getSettings->twitterHandle}}'s
+    </a>
+    Twitter Timeline
+</h2>
+<ul class="well">
+    @foreach($publicTweets as $tweet)
+        <li>
+            <div class="twit-gravitar">
+                <img src="{{ $tweet->user->profile_image_url }}">                                                      
+            </div>
+            <div class="twit-text">
+                {{ Twitter::linkify($tweet->text) }}
+            </div>                            
+        </li>
+        <hr class="twit-separator">
+    @endforeach
+</ul>              
 @stop

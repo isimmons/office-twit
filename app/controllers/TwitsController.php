@@ -27,13 +27,15 @@ class TwitsController extends BaseController {
      * @return Response Illuminate\View\View
      */
     public function index()
-    {  
-        $twits = Twit::whereIn('user_id', function($query)
+    {
+        $user = Auth::user();
+
+        $twits = Twit::whereIn('user_id', function($query) use ($user)
         {
             $query->select('follow_id')
                 ->from('user_follows')
-                ->where('user_id', Auth::user()->id);
-        })->orWhere('user_id', Auth::user()->id)
+                ->where('user_id', $user->id);
+        })->orWhere('user_id', $user->id)
         ->with('user')
         ->orderBy('created_at', 'DESC')
         ->get();
@@ -44,9 +46,14 @@ class TwitsController extends BaseController {
             $twit->user = new $this->presenter($twit->user);
         }
 
+        $user = new $this->presenter($user);
+
         $publicTweets = $this->twitter->getTimeline();
-        
-        return View::make('twits.index', compact('twits', 'publicTweets'));
+        //leave here for now to see layout of tweet object when needed
+        // foreach ($publicTweets as $tweet) {
+        //     dd($tweet);
+        // }
+        return View::make('twits.index', compact('twits', 'user', 'publicTweets'));
     }
 
     /**
