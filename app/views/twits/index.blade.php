@@ -39,7 +39,7 @@
             </div>
             <div class="twit-text">
                 {{ Twitter::linkify($tweet->text) }}
-            </div>                            
+            </div>
         </li>
         <hr class="twit-separator">
     @endforeach
