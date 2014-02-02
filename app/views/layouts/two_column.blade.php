@@ -32,13 +32,13 @@
                 
         <div id="left-content">
             <div class="col-md-6 timeline">
+                @include('twits.partials._timelineSideBar')
                 @yield('left-content')
             </div>
         </div><!-- ./ #content -->
 
         <div id="right-content">
-            <div class="col-md-6 timeline">
-                @include('twits.partials._timelineSideBar')
+            <div class="col-md-6 timeline">                
                 @yield('right-content')
             </div>
         </div><!-- ./ #sidebar -->
