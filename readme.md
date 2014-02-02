@@ -2,24 +2,19 @@
 ### Yes that's right. I said 4.2 -- "laravel/framework": "4.2.*" 
 ### UNSTABLE but works very well for now :-)
 
+### Not ready for production (see TODO list)
+
 #TODO
-* BIG TODO: VALIDATE ALL THE THINGS - Working on it now that other things are working correctly.
+* Validate all the things - Working on it now that other things are working correctly.
+* Check all endpoints for security (csrf, xss, auth required pages)
 * Redo all styles for correct organization, deduplication, refactor, etc.
 * Go through entire project checking for SOLID principles
-* Check all endpoints for security (csrf, xss, auth required pages)
-* Do not remove the above items until application is ready for deploy
 * Allow search for public viewable profiles from user who is not logged in (not sure?)
-* Create admin section with many configs for company IT administrator to be a Twit Nazi
-* Allow user config to show own personal twitter feed side by side with company feed
-* Above reminds me, need user settings overridable by admin settings
-* Allow user to RT personal onto company feed but not from company onto personal
-* Allow company admin to enable afore mentioned retweeting of company twits onto users personal feed
+* Create admin section for company IT administrator
 
 
 ##Notes:
-* Was using sqlite for development until I ran into a query issue, now Mysql
-* Switched to using UserPresenter to deal with user settings. Like the rest of the app it's a WIP
-* Started with idea of transformer for type casting but the transformInput method is really checking field values and not actually doing any transforming (type casting). Will make changes
+* Responsive not fully implemented. Need to move twitter feed to side slide out for mobile. At the moment it just hides. 
 * Unit tests since many changes to the application without testing. Oops I was bad :-( will fix 
 * Not sure if want to list all signed up users at /users or just provide a search feature like Twitter does
 * down the road but need to learn and use http://apigen.org or http://www.phpdoc.org/
