@@ -28,16 +28,16 @@
  
     @include('partials._header') 
     
-    <div class="container">
+    <div class="container two-col">
                 
-        <div id="left-content">
+        <div class="left-content">
             <div class="col-md-6 timeline">
                 @include('twits.partials._timelineSideBar')
                 @yield('left-content')
             </div>
         </div><!-- ./ #content -->
 
-        <div id="right-content">
+        <div class="right-content">
             <div class="col-md-6 timeline">                
                 @yield('right-content')
             </div>
