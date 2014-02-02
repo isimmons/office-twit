@@ -11,6 +11,7 @@
 * Go through entire project checking for SOLID principles
 * Allow search for public viewable profiles from user who is not logged in (not sure?)
 * Create admin section for company IT administrator
+* Do something to handle number of twits. Can't be querying the db and listing thousands of twits at one time.
 
 
 ##Notes:
