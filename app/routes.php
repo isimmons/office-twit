@@ -18,8 +18,6 @@ Route::group(['before' => 'auth'], function()
     Route::put('profile',  ['as' => 'user.profile.update', 'uses' => 'UserProfilesController@update'])->before('csrf');
 });
 
-
-
 Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
 Route::post('login', 'SessionsController@store')->before('csrf');
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
